@@ -40,8 +40,10 @@ $(".searchBtn").on("click", function(event){
 
     event.preventDefault();
 
+    var queryUrl = buildURL();
+    
     $.ajax({
-        url: url,
+        url: queryUrl,
         method: 'GET',
     }).then(function(response){
         console.log(response);

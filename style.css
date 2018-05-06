@@ -1,0 +1,18 @@
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.page-header {
+    background-color: #002b80;
+}
+
+.card {
+    margin-bottom: 30px;
+}
+
+body {
+    background-image: url(paper_fibers.png);
+}
+
+

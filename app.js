@@ -7,7 +7,7 @@
 
 function buildURL(){
 
-    var url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?";
+    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
 
     //build an object to hold all of the parameters
     var parameters = {'api-key': "68e092b4fbfc482fbff2f874be37183a"};

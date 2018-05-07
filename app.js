@@ -28,18 +28,16 @@ function buildURL(){
         parameters.end_date = endYear + "0101";
     }
 
-    console.log(url)
     console.log(url + $.param(parameters));
-
+    return url + $.param(parameters);
 
 
 } //buildURL() ending
 
-buildURL();
 
 $(".searchBtn").on("click", function(event){
     event.preventDefault();
-    console.log("hello")
+    $("#articleRender").empty();
     var queryUrl = buildURL();
     
 
@@ -49,6 +47,23 @@ $(".searchBtn").on("click", function(event){
     }).then(function(response){
         console.log(response);
 
+        var count = $("#articlesReturned").val();
+
+        for(var i = 0; i < count; i++){
+            var newArticle = $("<h3>" 
+                + response.response.docs[i].headline.main 
+                + "</h3>" 
+                + "<h5>"
+                + response.response.docs[i].snippet 
+                + "</h5>"
+                + "<p>"
+                + response.response.docs[i].web_url 
+                + "</p>"
+            );
+
+            $("#articleRender").append(newArticle);
+        }
+        
     })
 
 })

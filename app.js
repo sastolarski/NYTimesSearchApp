@@ -40,14 +40,14 @@ buildURL();
 $(".searchBtn").on("click", function(event){
     event.preventDefault();
     console.log("hello")
-
+    var queryUrl = buildURL();
     
 
     $.ajax({
-        url: buildURL(),
+        url: queryUrl,
         method: "GET"
     }).then(function(response){
-        console.log(response.docs[0].headline);
+        console.log(response);
 
     })
 

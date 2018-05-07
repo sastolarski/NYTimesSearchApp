@@ -7,7 +7,7 @@
 
 function buildURL(){
 
-    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
+    var url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?";
 
     //build an object to hold all of the parameters
     var parameters = {'api-key': "68e092b4fbfc482fbff2f874be37183a"};
@@ -31,25 +31,24 @@ function buildURL(){
     console.log(url)
     console.log(url + $.param(parameters));
 
+
+
 } //buildURL() ending
 
 buildURL();
 
-
 $(".searchBtn").on("click", function(event){
-
     event.preventDefault();
+    console.log("hello")
 
-    var queryUrl = buildURL();
     
+
     $.ajax({
-        url: queryUrl,
-        method: 'GET',
+        url: buildURL(),
+        method: "GET"
     }).then(function(response){
-        console.log(response);
+        console.log(response.docs[0].headline);
+
     })
-});
 
-function displayArticles(){
-
-}
+})

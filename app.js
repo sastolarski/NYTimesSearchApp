@@ -49,16 +49,18 @@ $(".searchBtn").on("click", function(event){
         console.log(response);
 
         for(var i = 0; i < $("#articlesReturned").val(); i++){
-            var newArticle = $("<h3>" 
+            var newArticle = $("<h4>" 
                 + response.response.docs[i].headline.main 
-                + "</h3>" 
-                + "<h5>"
-                + response.response.docs[i].snippet 
-                + "</h5>"
+                + "</h4>" 
                 + "<p>"
-                + response.response.docs[i].web_url 
+                + response.response.docs[i].snippet 
                 + "</p>"
-            );     
+                + "<a href='"
+                + response.response.docs[i].web_url 
+                + "'>Click here to view article</a>"
+                + "<hr>"
+            );
+        
         
             $("#articleRender").append(newArticle);
 

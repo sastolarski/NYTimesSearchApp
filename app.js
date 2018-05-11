@@ -38,6 +38,7 @@ function buildURL(){
 $(".searchBtn").on("click", function(event){
     event.preventDefault();
     $("#articleRender").empty();
+    $("#articleImage").empty();
     var queryUrl = buildURL();
     
 
@@ -47,9 +48,7 @@ $(".searchBtn").on("click", function(event){
     }).then(function(response){
         console.log(response);
 
-        var count = $("#articlesReturned").val();
-
-        for(var i = 0; i < count; i++){
+        for(var i = 0; i < $("#articlesReturned").val(); i++){
             var newArticle = $("<h3>" 
                 + response.response.docs[i].headline.main 
                 + "</h3>" 
@@ -59,11 +58,15 @@ $(".searchBtn").on("click", function(event){
                 + "<p>"
                 + response.response.docs[i].web_url 
                 + "</p>"
-            );
-
+            );     
+        
             $("#articleRender").append(newArticle);
+
         }
         
     })
 
 })
+
+
+
